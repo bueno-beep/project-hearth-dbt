@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: fct_sessions
+    description: One row per GA4 session (user_pseudo_id + ga_session_id).
+    columns:
+      - name: session_key
+        tests:
+          - unique
+          - not_null
+  - name: fct_funnel
+    description: Daily session counts and step conversion for view_item to purchase.
+    columns:
+      - name: event_date
+        tests:
+          - unique
+          - not_null
+  - name: fct_channels
+    description: Sessions, conversion and revenue by traffic source and medium.
