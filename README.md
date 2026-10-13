@@ -7,7 +7,7 @@ A dbt project that turns raw Google Analytics 4 event data into clean session, f
 
 ## Lineage
 
-![Lineage graph](docs/lineage.png)
+![Lineage graph]("C:\Users\gehan\Pictures\Screenshots\Screenshot 2026-10-01 195654.png")
 
 | Model | Type | What it contains |
 | --- | --- | --- |
