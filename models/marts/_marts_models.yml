@@ -1,5 +1,5 @@
 version: 2
-
+ 
 models:
   - name: fct_sessions
     description: One row per GA4 session (user_pseudo_id + ga_session_id).
@@ -8,6 +8,10 @@ models:
         tests:
           - unique
           - not_null
+      - name: channel_group
+        tests:
+          - accepted_values:
+              values: ['Paid Search', 'Organic Search', 'Referral', 'Direct', 'Unknown (obfuscated)']
   - name: fct_funnel
     description: Daily session counts and step conversion for view_item to purchase.
     columns:
@@ -17,3 +21,19 @@ models:
           - not_null
   - name: fct_channels
     description: Sessions, conversion and revenue by traffic source and medium.
+  - name: fct_session_funnel
+    description: One row per session with true/false flags for each funnel step (view_item, add_to_cart, begin_checkout, purchase).
+    columns:
+      - name: session_key
+        tests:
+          - unique
+          - not_null
+  - name: fct_funnel_segments
+    description: Funnel counts and step-to-step conversion for all sessions, by device and by channel group.
+    columns:
+      - name: dimension
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['overall', 'device', 'channel']
+ 
