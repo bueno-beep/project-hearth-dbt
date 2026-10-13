@@ -1,5 +1,5 @@
 version: 2
- 
+
 models:
   - name: fct_sessions
     description: One row per GA4 session (user_pseudo_id + ga_session_id).
@@ -36,4 +36,3 @@ models:
           - not_null
           - accepted_values:
               values: ['overall', 'device', 'channel']
- 
